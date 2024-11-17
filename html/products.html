@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - Phụ Kiện Điện Thoại</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/KhuyenMai.jpeg" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background: url('../img/header.png') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .poster {
+            position: relative;
+            background: url('../img/poster.jpg') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .poster:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        
+        .product-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .product-card {
+            margin-bottom: 30px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background: url('../img/header.png') no-repeat center center;
+            background-size: cover;
+            color: white;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Phụ Kiện Điện Thoại</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Trang Chủ</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="about.html">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Liên Hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Đăng Ký</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sitemap.html">Sitemap</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ml-auto" onsubmit="return false;">
+                    <input class="form-control mr-sm-2" type="search" id="searchInput" placeholder="Tìm kiếm" aria-label="Search">
+                    <button class="btn btn-light my-2 my-sm-0" type="submit" onclick="searchProducts()">Tìm</button>
+                </form>
+                <div id="searchMessage"></div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Phần Poster -->
+    <div class="container">
+        <a href="products.html" class="poster">
+            <!-- Có thể thêm nội dung vào poster nếu cần -->
+        </a>
+    </div>
+
+    <div class="container">
+        <h2>Sản Phẩm</h2>
+        <div class="row product-list">
+            <div class="col-md-4 product-card" data-name="Ốp Lưng Điện Thoại">
+                <img src="../img/OpLung.jpeg" alt="Ốp Lưng Điện Thoại" class="product-image">
+                <h5>Ốp Lưng Điện Thoại</h5>
+                <p>Giá: 50.000 VNĐ</p>
+                <p>Ốp lưng bảo vệ và trang trí cho điện thoại của bạn.</p>
+            </div>
+            <div class="col-md-4 product-card" data-name="Tai Nghe Bluetooth">
+                <img src="../img/TaiNgheBluetooth.jpeg" alt="Tai Nghe Bluetooth" class="product-image">
+                <h5>Tai Nghe Bluetooth</h5>
+                <p>Giá: 300.000 VNĐ</p>
+                <p>Tai nghe không dây chất lượng cao.</p>
+            </div>
+            <div class="col-md-4 product-card" data-name="Sạc Dự Phòng">
+                <img src="../img/SacDuPhong.jpeg" alt="Sạc Dự Phòng" class="product-image">
+                <h5>Sạc Dự Phòng</h5>
+                <p>Giá: 400.000 VNĐ</p>
+                <p>Sạc dự phòng dung lượng lớn.</p>
+            </div>
+            <div class="col-md-4 product-card" data-name="Cáp Sạc Nhanh">
+                <img src="../img/CapSacNhanh.jpeg" alt="Cáp Sạc Nhanh" class="product-image">
+                <h5>Cáp Sạc Nhanh</h5>
+                <p>Giá: 100.000 VNĐ</p>
+                <p>Cáp sạc nhanh cho điện thoại của bạn.</p>
+            </div>
+            <div class="col-md-4 product-card" data-name="Giá Đỡ Điện Thoại">
+                <img src="../img/GiaDo.jpeg" alt="Giá Đỡ Điện Thoại" class="product-image">
+                <h5>Giá Đỡ Điện Thoại</h5>
+                <p>Giá: 150.000 VNĐ</p>
+                <p>Giá đỡ tiện lợi cho điện thoại.</p>
+            </div>
+            <div class="col-md-4 product-card" data-name="Loa Bluetooth">
+                <img src="../img/LoaBluetooth.jpeg" alt="Loa Bluetooth" class="product-image">
+                <h5>Loa Bluetooth</h5>
+                <p>Giá: 700.000 VNĐ</p>
+                <p>Loa không dây âm thanh chất lượng cao.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Phụ Kiện Điện Thoại. Tất cả quyền được bảo lưu.</p>
+    </div>
+
+
+    <script>
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+            let found = false;
+
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                if (productName.includes(input)) {
+                    product.style.display = 'block';
+                    found = true;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            const searchMessage = document.getElementById('searchMessage');
+            searchMessage.textContent = found ? '' : 'Không tìm thấy sản phẩm nào!';
+        }
+    </script>
+</body>
+
+</html>

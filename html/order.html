@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Hàng - Phụ Kiện Điện Thoại</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/KhuyenMai.jpeg" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background: url('../img/header.png') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background: url('../img/header.png') no-repeat center center;
+            background-size: cover;
+            color: white;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .btn-primary {
+            background-color: #ffeb3b;
+            /* Màu vàng nhạt */
+            border-color: #ffeb3b;
+            color: #000;
+            /* Màu chữ đen */
+        }
+        
+        .btn-primary:hover {
+            background-color: #fdd835;
+            /* Màu vàng đậm hơn khi hover */
+            border-color: #fdd835;
+            color: #000;
+            /* Màu chữ đen */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Đặt Hàng</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Trang Chủ</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="about.html">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Liên Hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Đăng Ký</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sitemap.html">Sitemap</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ml-auto" onsubmit="return false;">
+                    <input class="form-control mr-sm-2" type="search" id="searchInput" placeholder="Tìm kiếm" aria-label="Search">
+                    <button class="btn btn-light my-2 my-sm-0" type="submit" onclick="searchProducts()">Tìm</button>
+                </form>
+                <div id="searchMessage"></div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h2>Đặt Hàng</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Tên của bạn:</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email của bạn:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ giao hàng:</label>
+                <input type="text" class="form-control" id="address" required>
+            </div>
+            <div class="form-group">
+                <label for="product">Sản phẩm:</label>
+                <select class="form-control" id="product" required>
+                    <option value="Ốp Lưng Điện Thoại">Ốp Lưng Điện Thoại</option>
+                    <option value="Tai Nghe Bluetooth">Tai Nghe Bluetooth</option>
+                    <option value="Sạc Dự Phòng">Sạc Dự Phòng</option>
+                    <option value="Cáp Sạc Nhanh">Cáp Sạc Nhanh</option>
+                    <option value="Giá Đỡ Điện Thoại">Giá Đỡ Điện Thoại</option>
+                    <option value="Loa Bluetooth">Loa Bluetooth</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Số lượng:</label>
+                <input type="number" class="form-control" id="quantity" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Đặt Hàng</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Phụ Kiện Điện Thoại. Tất cả quyền được bảo lưu.</p>
+    </div>
+
+    <script>
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+            let found = false;
+
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                if (productName.includes(input)) {
+                    product.style.display = 'block';
+                    found = true;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            const searchMessage = document.getElementById('searchMessage');
+            searchMessage.textContent = found ? '' : 'Không tìm thấy sản phẩm nào!';
+        }
+    </script>
+</body>
+
+</html>
